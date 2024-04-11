@@ -17,10 +17,10 @@ OBJS := $(SRCS:%.cpp=$(BUILDDIR)/%.o)
 DEPS := $(SRCS:%.cpp=$(BUILDDIR)/%.d)
 
 # Compiler:
-CXX = clang++
+CXX = g++
 
 #Linker:
-LD  = clang++
+LD  = g++
 
 # -MMD and -MP asks clang++ to generate a .d file listing the headers used in the source code for use in the Make process.
 DEPFLAGS = -MMD -MP
