@@ -13,7 +13,7 @@
 
 ## Screenshots
 <h3 align="center">
-<img src="https://github.com/WindOfXaos/COVET/blob/main/doc/screenshots/Screenshot%202024-04-11%20084741.png" alt="screenshot1" height="280px"> <img src="https://github.com/WindOfXaos/COVET/blob/main/doc/screenshots/Screenshot%202024-04-11%20084841.png" alt="screenshot1" height="280px"> <img src="https://github.com/WindOfXaos/COVET/blob/main/doc/screenshots/Screenshot%202024-04-11%20085024.png" alt="screenshot1" height="280px"> <img src="https://github.com/WindOfXaos/COVET/blob/main/doc/screenshots/Screenshot%202024-04-11%20085725.png" alt="screenshot1" height="280px">
+<img src="https://github.com/WindOfXaos/COVET/blob/main/doc/screenshots/Screenshot%202024-04-11%20084741.png" alt="screenshot1"> <img src="https://github.com/WindOfXaos/COVET/blob/main/doc/screenshots/Screenshot%202024-04-11%20084841.png" alt="screenshot2"> <img src="https://github.com/WindOfXaos/COVET/blob/main/doc/screenshots/Screenshot%202024-04-11%20085024.png" alt="screenshot3"> <img src="https://github.com/WindOfXaos/COVET/blob/main/doc/screenshots/Screenshot%202024-04-11%20085725.png" alt="screenshot4">
 </h3>
 
 ## Project Structure
