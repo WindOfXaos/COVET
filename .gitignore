@@ -1,0 +1,7 @@
+# Binaries
+bin/imgui.ini
+bin/COVET*
+bin/test*
+
+# Build
+build/*
