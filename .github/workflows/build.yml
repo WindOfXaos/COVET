@@ -1,4 +1,4 @@
-name: C++ CI
+name: BUILD MSYS2
 
 on:
   push:

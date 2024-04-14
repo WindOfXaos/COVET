@@ -6,7 +6,7 @@
   
 ![status](https://img.shields.io/badge/status-pre--alpha-blue)
 ![license](https://img.shields.io/badge/license-apache_2.0-yellow)
-![build](https://img.shields.io/github/actions/workflow/status/WindOfXaos/COVET/build.yml)
+![build](https://github.com/WindOfXaos/COVET/actions/workflows/build.yml/badge.svg)
 
 </div>
 
