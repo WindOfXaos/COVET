@@ -32,7 +32,7 @@ WARNINGS = -pedantic -Wall -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unu
 CXXFLAGS = -std=c++17 -g -c -O0 $(WARNINGS) $(DEPFLAGS) $(INCDIR)
 
 # Flags for linking:
-LDFLAGS = -Llib -lpthread -lglfw3 -lgdi32
+LDFLAGS = --static -Llib -lpthread -lglfw3 -lgdi32
 
 all: $(EXE)
 
