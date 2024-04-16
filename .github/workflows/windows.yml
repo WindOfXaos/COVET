@@ -10,6 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: install dependencies
+      run: |
+        choco install ninja
+        choco install git.install --params "/GitAndUnixToolsOnPath"
+
     - name: build GLFW
       run: |
         cd vendor/GLFW
