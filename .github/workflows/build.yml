@@ -2,9 +2,9 @@ name: BUILD MSYS2
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "workflows-test" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "workflows-test" ]
 
 jobs:
   build:
@@ -16,6 +16,9 @@ jobs:
   
     - name: build
       run: make
+
+    - name: test
+      run: make test
 
     - name: clean
       run: make clean

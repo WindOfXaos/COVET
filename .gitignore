@@ -2,6 +2,7 @@
 bin/imgui.ini
 bin/COVET*
 bin/test*
+!bin/test_*
 
 # Build
 build/*
