@@ -23,7 +23,7 @@ jobs:
         cd vendor/GLFW
         cmake . -G "Ninja"
         ninja
-        mv src/libglfw3.a ../../lib/libglfw3.a
+        mv src/libglfw3.a ${{ GITHUB_WORKSPACE }}/lib/libglfw3.a
 
     - name: build
       run: make
