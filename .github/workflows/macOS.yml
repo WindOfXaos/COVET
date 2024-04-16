@@ -1,0 +1,23 @@
+name: OSX
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: install dependencies
+      run: brew install ninja
+
+    - name: build
+      run: make
+
+    - name: test
+      run: make test
+
+    - name: clean
+      run: make clean
