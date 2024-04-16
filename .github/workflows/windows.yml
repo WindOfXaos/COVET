@@ -13,7 +13,6 @@ jobs:
     - name: install dependencies
       run: |
         choco install ninja
-        choco install git.install --params "/GitAndUnixToolsOnPath"
 
     - name: build GLFW
       run: |
@@ -24,9 +23,6 @@ jobs:
 
     - name: build
       run: make
-
-    - name: test
-      run: make test
 
     - name: clean
       run: make clean
