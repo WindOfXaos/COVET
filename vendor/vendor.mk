@@ -5,4 +5,4 @@ SRCS += $(wildcard vendor/imgui/*.cpp) \
 # Should be glad.c but we can get away with it for the sake of simplicity
 
 # Header files
-INCDIR += -Ivendor
+INCDIR += -Ivendor -Ivendor\GLFW\include
