@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v1
 
     - name: install dependencies
       run: |
@@ -23,7 +23,7 @@ jobs:
         cd vendor/GLFW
         cmake . -G "Ninja"
         ninja
-        mv "${{ github.workspace }}/vendor/GLFW/src/libglfw3.a" "${{ github.workspace }}/lib/libglfw3.a"
+        mv src/libglfw3.a ../../lib/libglfw3.a
 
     - name: build
       run: make
