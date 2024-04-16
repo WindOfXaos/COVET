@@ -31,8 +31,14 @@ WARNINGS = -pedantic -Wall -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unu
 # Flags for compile:
 CXXFLAGS = -std=c++17 -g -c -O0 $(WARNINGS) $(DEPFLAGS) $(INCDIR)
 
+ifeq ($(OS), Windows_NT)
+	GLFWLIB = -lgdi32
+else
+	GLFWLIB = -lGL
+endif
+
 # Flags for linking:
-LDFLAGS = -Llib -lpthread -lglfw3 -lGL
+LDFLAGS = -Llib -lpthread -lglfw3 $(GLFWLIB)
 
 all: $(EXE)
 
