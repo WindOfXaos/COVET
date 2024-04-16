@@ -21,7 +21,7 @@ jobs:
     - name: build GLFW
       run: |
         cd vendor/GLFW
-        cmake .
+        cmake . -G "Ninja"
         ninja
         mv src/libglfw3.a ../../lib/libglfw3.a
 
