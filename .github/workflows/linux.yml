@@ -28,5 +28,8 @@ jobs:
     - name: build
       run: make
 
+    - name: test
+      run: make test
+
     - name: clean
       run: make clean
