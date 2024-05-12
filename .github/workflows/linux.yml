@@ -26,10 +26,8 @@ jobs:
     - name: build
       run: make
 
-    - name: headless test
-      uses: coactions/setup-xvfb@v1
-      with:
-        run: make test
+    - name: test
+      run: xvfb-run make test
 
     - name: clean
       run: make clean
