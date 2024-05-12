@@ -10,19 +10,20 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: install dependencies
-      run: |
-        choco install ninja
-
     - name: build GLFW
       run: |
         cd vendor/GLFW
-        cmake . -G "Ninja"
-        ninja
+        cmake . -G "Unix Makefiles"
+        make
         mv src/libglfw3.a ../../lib/libglfw3.a
 
     - name: build
       run: make
+
+    - name: headless test
+      uses: coactions/setup-xvfb@v1
+      with:
+        run: make test
 
     - name: clean
       run: make clean
