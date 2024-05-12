@@ -6,9 +6,18 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    services:
+      xvfb:
+        image: tianon/xvfb
+        options: --privileged
     steps:
     - uses: actions/checkout@v4
+    - name: Start Xvfb
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb
+        Xvfb :99 -ac &
+        export DISPLAY=:99
 
     - name: install dependencies
       run: |
