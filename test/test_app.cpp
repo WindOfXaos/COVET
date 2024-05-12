@@ -5,7 +5,7 @@
 
 TEST_CASE("Main window title") {
   // Create singleton instance
-  App& app = App::Create("TEST", 1366, 768);
+  App& app = App::Create("TEST", 1366, 768, true);
   REQUIRE(&app != NULL);
 
   const WindowManager& wm = app.GetWindowManager();
@@ -14,7 +14,7 @@ TEST_CASE("Main window title") {
   CHECK(wm.height == 768);
 
   // Test singleton instance
-  App& app2 = App::Create("TEST2", 1000, 1000);
+  App& app2 = App::Create("TEST2", 1000, 1000, true);
 
   const WindowManager& wm2 = app2.GetWindowManager();
   CHECK(doctest::String(wm2.title) == "TEST");
