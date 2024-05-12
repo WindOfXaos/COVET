@@ -9,9 +9,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Run headless test
-      uses: coactions/setup-xvfb@v1
-
     - name: install dependencies
       run: |
         sudo apt-get update
@@ -29,8 +26,10 @@ jobs:
     - name: build
       run: make
 
-    - name: test
-      run: make test
+    - name: headless test
+      uses: coactions/setup-xvfb@v1
+      with:
+        run: make test
 
     - name: clean
       run: make clean
