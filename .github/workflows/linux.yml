@@ -9,12 +9,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Start Xvfb
+    - name: Setup xvfb
       run: |
-        sudo apt-get update
-        sudo apt-get install -y xvfb
-        Xvfb :99 -ac &
-        export DISPLAY=:99
+        sudo apt-get install -y xvfb libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xinerama0 libxcb-xinput0 libxcb-xfixes0
+        # start xvfb on (default) display :0
+        sudo /usr/bin/Xvfb :0 -screen 0 1366x768x24 &
 
     - name: install dependencies
       run: |
