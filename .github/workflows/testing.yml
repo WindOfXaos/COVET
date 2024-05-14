@@ -1,0 +1,23 @@
+name: Testing
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+#    - name: install dependencies
+#      run: |
+#        sudo apt-get update
+#        sudo apt-get install libwayland-dev
+#        sudo apt install libxkbcommon-dev
+#        sudo apt install xorg-dev
+
+    - name: build GLFW
+      run: make GLFW
+
+    - name: test
+      run: xvfb-run make test
