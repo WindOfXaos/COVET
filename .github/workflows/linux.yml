@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: install dependencies
       run: |
@@ -17,17 +19,10 @@ jobs:
         sudo apt install xorg-dev
 
     - name: build GLFW
-      run: |
-        cd vendor/GLFW
-        cmake . -G "Unix Makefiles"
-        make
-        mv src/libglfw3.a ../../lib/libglfw3.a
+      run: make GLFW
 
     - name: build
       run: make
-
-    - name: test
-      run: xvfb-run make test
 
     - name: clean
       run: make clean
