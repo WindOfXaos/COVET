@@ -35,13 +35,20 @@ root
 ## Building
 Clone the repository
 ```console
-$ git clone https://github.com/WindOfXaos/COVET
+$ git clone --recursive https://github.com/WindOfXaos/COVET
 $ cd COVET
 ```
 ### Makefile
-Build and run
+Build GLFW
+```console
+$ make GLFW
+```
+Build source code
 ```console
 $ make
+```
+Run project
+```console
 $ cd bin
 $ ./COVET
 ```
