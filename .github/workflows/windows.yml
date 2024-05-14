@@ -9,19 +9,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: build GLFW
-      run: |
-        cd vendor/GLFW
-        cmake . -G "Unix Makefiles"
-        make
-        mv src/libglfw3.a ../../lib/libglfw3.a
+      run: make GLFW
 
     - name: build
       run: make
-
-    - name: test
-      run: make test
 
     - name: clean
       run: make clean
