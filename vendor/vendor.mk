@@ -6,3 +6,15 @@ SRCS += $(wildcard vendor/imgui/*.cpp) \
 
 # Header files
 INCDIR += -Ivendor -Ivendor/GLFW/include
+
+# Rule for building cross-platform GLFW static library:
+GLFW: lib/libglfw3.a
+	@echo "GLFW build complete"
+
+lib/libglfw3.a:
+	@echo " Building GLFW..."
+	cd vendor/GLFW && \
+	rm -rf CMakeCache.txt CMakeFiles && \
+	cmake -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF -DGLFW_BUILD_DOCS=OFF -DGLFW_INSTALL=OFF . -G "Unix Makefiles" && \
+	$(MAKE) && \
+	mv src/libglfw3.a ../../lib/libglfw3.a
