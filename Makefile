@@ -33,14 +33,14 @@ WARNINGS = -pedantic -Wall -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unu
 CXXFLAGS = -std=c++17 -g -c -O0 $(WARNINGS) $(DEPFLAGS) $(INCDIR)
 
 # Flags for libraries
-LIBS = --static -Llib -lpthread -lglfw3
+LIBS = -Llib -lpthread -lglfw3
 
 ##-------------------------
 ## BUILD FLAGS PER PLATFORM
 ##-------------------------
 
 ifeq ($(OS), Windows_NT) #Windows
-	LIBS += -lgdi32
+	LIBS += --static -lgdi32
 else
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S), Linux) #LINUX
