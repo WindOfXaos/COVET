@@ -11,10 +11,10 @@ jobs:
       with:
         submodules: recursive
 
-#    - name: install dependencies
-#      run: |
-#        sudo apt-get update
-#        sudo apt-get install libwayland-dev
+    - name: install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install libwayland-dev
 #        sudo apt install libxkbcommon-dev
 #        sudo apt install xorg-dev
 
