@@ -14,7 +14,7 @@ public:
     unsigned int height;
     bool play = false;
 
-    WindowManager(const char *t, int w, int h, bool os): title(t), width(w), height(h), offscreen(os) {}
+    WindowManager(const char *t, int w, int h): title(t), width(w), height(h) {}
     ~WindowManager();
     WindowManager(const WindowManager&) = delete;
     WindowManager& operator=(const WindowManager&) = delete;
@@ -26,7 +26,6 @@ public:
     void processInput(GLFWwindow *window);
 
 private:
-    bool offscreen;
     // callback functions variables
     float last_x;
     float last_y;

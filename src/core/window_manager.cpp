@@ -20,11 +20,6 @@ void WindowManager::init()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    // CI testing
-    if (offscreen) {
-        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
-    }
-
     // glfw window creation
     // --------------------
     window_handler = glfwCreateWindow(width, height, title, NULL, NULL);

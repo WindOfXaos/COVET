@@ -2,7 +2,7 @@
 
 App* App::instance = nullptr;
 
-App::App(const char *title, unsigned int width, unsigned int height, bool offscreen): wm(title, width, height, offscreen), renderer(scene)
+App::App(const char *title, unsigned int width, unsigned int height): wm(title, width, height), renderer(scene)
 {
   wm.init();
   renderer.init(wm);
