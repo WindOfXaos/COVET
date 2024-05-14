@@ -6,14 +6,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
 
     - name: install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install ninja-build -y
         sudo apt-get install libwayland-dev
         sudo apt install libxkbcommon-dev
         sudo apt install xorg-dev
@@ -21,12 +19,15 @@ jobs:
     - name: build GLFW
       run: |
         cd vendor/GLFW
-        cmake . -G "Ninja"
-        ninja
+        cmake . -G "Unix Makefiles"
+        make
         mv src/libglfw3.a ../../lib/libglfw3.a
 
     - name: build
       run: make
+
+    - name: test
+      run: xvfb-run make test
 
     - name: clean
       run: make clean

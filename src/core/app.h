@@ -8,14 +8,14 @@
 class App
 {
 private:
-  App(const char *title, unsigned int width, unsigned int height);
+  App(const char *title, unsigned int width, unsigned int height, bool offscreen);
   App(const App&) = delete;
   App& operator=(const App&) = delete;
 
 public:
-  static App& Create(const char *title, unsigned int width, unsigned int height)
+  static App& Create(const char *title, unsigned int width, unsigned int height, bool offscreen = false)
   {
-    static App instance(title, width, height);
+    static App instance(title, width, height, offscreen);
     return instance;
   }
 
