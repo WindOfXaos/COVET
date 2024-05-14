@@ -22,6 +22,4 @@ jobs:
       run: make GLFW
 
     - name: test
-      run: |
-        make
-        xvfb-run make test
+      run: xvfb-run make test
