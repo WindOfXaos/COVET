@@ -1,3 +1,4 @@
+.DEFAULT_GOAL := all
 # Third-party sources
 include vendor/vendor.mk
 # Source sources
@@ -31,8 +32,24 @@ WARNINGS = -pedantic -Wall -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unu
 # Flags for compile:
 CXXFLAGS = -std=c++17 -g -c -O0 $(WARNINGS) $(DEPFLAGS) $(INCDIR)
 
+# Flags for libraries
+LIBS = -Llib -lpthread -lglfw3
+
+##-------------------------
+## BUILD FLAGS PER PLATFORM
+##-------------------------
+
+ifeq ($(OS), Windows_NT) #Windows
+	LIBS += --static -lgdi32
+else
+	UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S), Linux) #LINUX
+		LIBS += -lGL
+	endif
+endif
+
 # Flags for linking:
-LDFLAGS = --static -Llib -lpthread -lglfw3 -lgdi32
+LDFLAGS =  $(LIBS)
 
 all: $(EXE)
 

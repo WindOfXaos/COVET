@@ -6,7 +6,9 @@
   
 ![status](https://img.shields.io/badge/status-pre--alpha-blue)
 ![license](https://img.shields.io/badge/license-apache_2.0-yellow)
-![build](https://github.com/WindOfXaos/COVET/actions/workflows/build.yml/badge.svg)
+![windows](https://github.com/WindOfXaos/COVET/actions/workflows/windows.yml/badge.svg)
+![linux](https://github.com/WindOfXaos/COVET/actions/workflows/linux.yml/badge.svg)
+![testing](https://github.com/WindOfXaos/COVET/actions/workflows/testing.yml/badge.svg)
 
 </div>
 
@@ -33,13 +35,20 @@ root
 ## Building
 Clone the repository
 ```console
-$ git clone https://github.com/WindOfXaos/COVET
+$ git clone --recursive https://github.com/WindOfXaos/COVET
 $ cd COVET
 ```
 ### Makefile
-Build and run
+Build GLFW
+```console
+$ make GLFW
+```
+Build source code
 ```console
 $ make
+```
+Run project
+```console
 $ cd bin
 $ ./COVET
 ```
