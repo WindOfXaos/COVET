@@ -48,7 +48,7 @@ jobs:
       run: make
 
     - name: Package project
-      run: Compress-Archive -Path ./bin/COVET.exe ./bin/icon.png ./bin/assets ./bin/shaders -DestinationPath windows_build.zip
+      run: Compress-Archive -Path ./bin/COVET.exe, ./bin/icon.png, ./bin/assets, ./bin/shaders -DestinationPath windows_build.zip
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
