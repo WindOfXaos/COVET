@@ -74,8 +74,9 @@ jobs:
         path: .
 
     - name: Rename build artifacts
-      run: mv linux_build.zip COVET-${{ github.ref_name }}-linux-x64.zip
-      run: mv windows_build.zip COVET-${{ github.ref_name }}-win32-x64.zip
+      run: |
+        mv linux_build.zip COVET-${{ github.ref_name }}-linux-x64.zip
+        mv windows_build.zip COVET-${{ github.ref_name }}-win32-x64.zip
 
     - name: Create Release
       uses: softprops/action-gh-release@v2
