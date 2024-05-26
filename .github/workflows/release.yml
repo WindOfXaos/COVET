@@ -1,0 +1,90 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-linux:
+    name: Build Linux artifacts
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libwayland-dev libxkbcommon-dev xorg-dev
+
+    - name: Build GLFW
+      run: make GLFW
+
+    - name: Build project
+      run: make
+
+    - name: Package project
+      run: zip -r linux_build.zip ./bin/COVET ./bin/icon.png ./bin/assets ./bin/shaders
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: linux_build
+        path: linux_build.zip
+
+  build-windows:
+    name: Build Windows artifacts
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Build GLFW
+      run: make GLFW
+
+    - name: Build project
+      run: make
+
+    - name: Package project
+      run: Compress-Archive -Path ./bin/COVET.exe, ./bin/icon.png, ./bin/assets, ./bin/shaders -DestinationPath windows_build.zip
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: windows_build
+        path: windows_build.zip
+
+  release:
+    name: Create Release
+    needs: [build-linux, build-windows]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download Linux build artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: linux_build
+        path: .
+
+    - name: Download Windows build artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: windows_build
+        path: .
+
+    - name: Rename build artifacts
+      run: |
+        mv linux_build.zip COVET-${{ github.ref_name }}-linux-x64.zip
+        mv windows_build.zip COVET-${{ github.ref_name }}-win32-x64.zip
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v2
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          COVET-${{ github.ref_name }}-linux-x64.zip
+          COVET-${{ github.ref_name }}-win32-x64.zip
