@@ -30,7 +30,9 @@ jobs:
       run: make
 
     - name: Package project
-      run: zip -r linux_build.zip ./bin/COVET ./bin/icon.png ./bin/assets ./bin/shaders
+      run: |
+        cd bin
+        zip -r ../linux_build.zip COVET icon.png assets shaders
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
